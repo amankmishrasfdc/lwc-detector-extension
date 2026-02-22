@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Salesforce LWC Detector",
+  "version": "1.1",
+  "description": "Detect custom LWC components on Lightning pages",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": [
+    "https://*.lightning.force.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Scan LWC"
+  }
+}
