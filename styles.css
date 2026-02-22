@@ -88,3 +88,8 @@ button:hover {
   font-size: 13px;
   padding: 10px;
 }
+
+.copy-btn.copied {
+  background: #d4f7dc;
+  color: #1a7f37;
+}
