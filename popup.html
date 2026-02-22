@@ -3,29 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Custom LWC Detector</title>
-  <style>
-    body {
-      font-family: Arial;
-      width: 320px;
-      padding: 10px;
-    }
-    button {
-      margin-bottom: 10px;
-      padding: 5px 10px;
-    }
-    ul {
-      padding-left: 20px;
-      max-height: 300px;
-      overflow-y: auto;
-    }
-  </style>
+  <title>LWC Detector</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <h3>Custom LWC Detector</h3>
-  <button id="scanBtn">Scan Page</button>
-  <ul id="result"></ul>
+
+  <div class="header">
+    LWC Detector
+    <span id="count" class="count-badge">0</span>
+  </div>
+
+  <div class="container">
+    <button id="scanBtn">Scan Lightning Page</button>
+    <div id="result" class="list"></div>
+  </div>
 
   <script src="popup.js"></script>
+
 </body>
 </html>

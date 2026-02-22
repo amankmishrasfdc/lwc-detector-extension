@@ -1,0 +1,90 @@
+body {
+  font-family: "Salesforce Sans", Arial, sans-serif;
+  width: 360px;
+  margin: 0;
+  background: #f4f6f9;
+}
+
+.header {
+  background: #0176d3;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.count-badge {
+  background: white;
+  color: #0176d3;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.container {
+  padding: 12px;
+}
+
+button {
+  width: 100%;
+  padding: 8px;
+  background: #0176d3;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 12px;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #014486;
+}
+
+.list {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.component-card {
+  background: white;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  transition: transform 0.1s ease;
+}
+
+.component-card:hover {
+  transform: scale(1.02);
+}
+
+.copy-btn {
+  font-size: 11px;
+  background: #e3f3ff;
+  color: #0176d3;
+  border: none;
+  padding: 3px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background: #cce9ff;
+}
+
+.empty {
+  text-align: center;
+  color: #666;
+  font-size: 13px;
+  padding: 10px;
+}

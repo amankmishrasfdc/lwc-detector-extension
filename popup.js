@@ -2,7 +2,7 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
 
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-    if (!tab.url.includes("lightning.force.com")) {
+    if (!tab.url || !tab.url.includes("lightning.force.com")) {
         alert("Open a Salesforce Lightning page first.");
         return;
     }
@@ -13,18 +13,37 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
     }).then((results) => {
 
         const components = results[0].result;
-        const resultList = document.getElementById("result");
-        resultList.innerHTML = '';
+        const resultDiv = document.getElementById("result");
+        const countBadge = document.getElementById("count");
+
+        resultDiv.innerHTML = '';
 
         if (!components || components.length === 0) {
-            resultList.innerHTML = '<li>No custom LWC found</li>';
+            resultDiv.innerHTML = `<div class="empty">No custom LWC found</div>`;
+            countBadge.textContent = 0;
             return;
         }
 
+        countBadge.textContent = components.length;
+
         components.forEach(comp => {
-            const li = document.createElement('li');
-            li.textContent = comp;
-            resultList.appendChild(li);
+            const card = document.createElement('div');
+            card.className = 'component-card';
+
+            const name = document.createElement('span');
+            name.textContent = comp;
+
+            const copyBtn = document.createElement('button');
+            copyBtn.textContent = "Copy";
+            copyBtn.className = "copy-btn";
+            copyBtn.onclick = () => {
+                navigator.clipboard.writeText(comp);
+            };
+
+            card.appendChild(name);
+            card.appendChild(copyBtn);
+
+            resultDiv.appendChild(card);
         });
 
     }).catch(err => {
@@ -40,7 +59,7 @@ function scanForLwc() {
     allElements.forEach(el => {
         const tagName = el.tagName.toLowerCase();
 
-        // ONLY custom components
+        // Only custom LWC in default namespace
         if (tagName.startsWith('c-')) {
             lwcComponents.add(tagName);
         }
